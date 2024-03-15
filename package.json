@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.23.9",
+    "async-exit-hook": "2.0.1",
     "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "mongodb": "^6.5.0"
@@ -28,6 +29,7 @@
     "@babel/node": "^7.22.10",
     "@babel/plugin-transform-runtime": "^7.22.10",
     "@babel/preset-env": "^7.22.10",
+    "@types/async-exit-hook": "^2.0.2",
     "babel-plugin-module-resolver": "^5.0.0",
     "eslint": "^8.56.0",
     "nodemon": "^3.0.3"
