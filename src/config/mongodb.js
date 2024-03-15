@@ -1,11 +1,11 @@
 import { MongoClient, ServerApiVersion } from 'mongodb'
-import 'dotenv/config'
+import { env } from '~/config/environment'
 
 // declare an object is initial null
 let trelloDatabaseInstance = null
 
 // declare a mongoClientInstance object to connect to MongoDB
-const mongoClientInstance = new MongoClient(process.env.MONGODB_URI, {
+const mongoClientInstance = new MongoClient(env.MONGODB_URI, {
   // ServerApiVersion is available since MongoDB 5.0.0
   // more info: https://www.mongodb.com/docs/drivers/node/current/fundamentals/stable-api/
   serverApi: {
@@ -20,10 +20,10 @@ export const CONNECT_DB = async () => {
   await mongoClientInstance.connect()
 
   // if the connect is successful, get database name and assign it to trelloDatabaseInstance
-  trelloDatabaseInstance = mongoClientInstance.db(process.env.DATABASE_NAME)
+  trelloDatabaseInstance = mongoClientInstance.db(env.DATABASE_NAME)
 }
 
-// this function (not async function )is able to export the Trello Database Instance after
+// this function (not async function) is able to export the Trello Database Instance after
 // connecting successfully to mongoDB, very convenient to re-use somewhere else in the code
 // NOTE: must make sure that only call this GET_DB after successfully connecting to mongoDB
 export const GET_DB = () => {
