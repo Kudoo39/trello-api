@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { StatusCodes } from 'http-status-codes'
-// import { env } from '~/config/environment'
+import { env } from '~/config/environment'
 
 export const errorHandlingMiddleware = (err, req, res, next) => {
   // return 500 if statusCude is missing
@@ -11,6 +11,9 @@ export const errorHandlingMiddleware = (err, req, res, next) => {
     message: err.message || StatusCodes[err.statusCode],
     stack: err.stack
   }
+
+  // only return Stack Trace when in dev environment
+  if (env.BUILD_MODE !== 'dev') delete responseError.stack
 
   res.status(responseError.statusCode).json(responseError)
 }
