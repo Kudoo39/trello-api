@@ -52,7 +52,7 @@ const getDetails = async (id) => {
       { $lookup: { from: columnModel.COLUMN_COLLECTION_NAME, localField: '_id', foreignField: 'boardId', as: 'columns' } },
       { $lookup: { from: cardModel.CARD_COLLECTION_NAME, localField: '_id', foreignField: 'boardId', as: 'cards' } }
     ]).toArray()
-    return result[0] || {}
+    return result[0] || null
   } catch (error) { throw new Error(error) }
 }
 
