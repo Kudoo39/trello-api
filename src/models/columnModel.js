@@ -48,7 +48,7 @@ const pushCardOrderIds = async (card) => {
       { ReturnDocument: 'after' }
     )
 
-    return result.value
+    return result
   } catch (error) { throw new Error(error) }
 }
 
