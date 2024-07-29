@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import express from 'express'
 import cors from 'cors'
-import {corsOptions} from '~/config/cors'
+import { corsOptions } from '~/config/cors'
 import exitHook from 'async-exit-hook'
 import { CONNECT_DB, CLOSE_DB } from '~/config/mongodb'
 import { env } from '~/config/environment'
@@ -26,14 +26,20 @@ const START_SERVER = () => {
     res.end('<h1>Hello World! Cause you are my world</h1><hr>')
   })
 
-  app.listen(env.APP_PORT, env.APP_HOST, () => {
-    console.log(`3. Hi ${env.AUTHOR}, the server is currently running at: http://${env.APP_HOST}:${env.APP_PORT}/`)
-  })
+  if (env.BUILD_MODE === 'production') {
+    app.listen(env.PORT, () => {
+      console.log(`3. Hi ${env.AUTHOR}, the server is currently running at Port: ${env.PORT}/`)
+    })
+  } else {
+    app.listen(env.APP_PORT, env.APP_HOST, () => {
+      console.log(`3. Hi ${env.AUTHOR}, the server is currently running at: http://${env.APP_HOST}:${env.APP_PORT}/`)
+    })
+  }
 
   // before stopping server, clean up first
   exitHook(() => {
     console.log('4. Server is shutting down...')
-    CLOSE_DB
+    CLOSE_DB()
     console.log('5. Disconnected to MongoDB Cloud Atlas!')
   })
 }
