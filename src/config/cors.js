@@ -5,10 +5,12 @@ import ApiError from '~/utils/ApiError'
 
 export const corsOptions = {
   origin: function (origin, callback) {
-    // Allow call API using Postman in dev environment
-    if (!origin && env.BUILD_MODE === 'dev') {
+    // for dev environment
+    if (env.BUILD_MODE === 'dev') {
       return callback(null, true)
     }
+
+    // production environment
 
     // Check origin if it is in accepted list
     if (WHITELIST_DOMAINS.includes(origin)) {
