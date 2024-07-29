@@ -27,8 +27,8 @@ const START_SERVER = () => {
   })
 
   if (env.BUILD_MODE === 'production') {
-    app.listen(env.PORT, () => {
-      console.log(`3. Hi ${env.AUTHOR}, the server is currently running at Port: ${env.PORT}/`)
+    app.listen(process.env.PORT, () => {
+      console.log(`3. Hi ${env.AUTHOR}, the server is currently running at Port: ${env.PORT}`)
     })
   } else {
     app.listen(env.APP_PORT, env.APP_HOST, () => {
