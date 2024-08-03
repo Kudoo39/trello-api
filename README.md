@@ -122,4 +122,4 @@ src
 - I configured CORS (Cross-Origin Resource Sharing) to enhance the security of the backend. The API is only accessible from the frontend URL to prevent unauthorized access from other origins.
 
 ## Deployment
-- I deployed the Trello API backend project on AWS Lightsail for reliable hosting. The project was deploy at [trelloapi.crabdance.com](trelloapi.crabdance.com).
+- I deployed the Trello API backend project on AWS Lightsail for reliable hosting. The project was deployed at [trelloapi.crabdance.com](trelloapi.crabdance.com).
