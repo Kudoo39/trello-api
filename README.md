@@ -4,7 +4,7 @@ This project serves as the backend implementation for the Trello Clone applicati
 
 ## Frontend Part
 
-[Trello Project (Frontend)](https://github.com/Kudoo39/trello-project)
+Here is the frontend part of this project: **[Trello Project (Frontend)](https://github.com/Kudoo39/trello-project)**
 
 ## Table of Contents
 
@@ -13,6 +13,8 @@ This project serves as the backend implementation for the Trello Clone applicati
 3. [Error Handling](#error-handling)
 4. [Technologies Used](#technologies-used)
 5. [Project Structure](#project-structure)
+6. [CORS Configuration](#cors-configuration)
+7. [Deployment](#deployment)
 
 
 ## Getting Started
@@ -115,3 +117,9 @@ src
  ┃ ┗ columnValidation.js
  ┗ server.js
  ```
+
+## CORS Configuration
+- I configured CORS (Cross-Origin Resource Sharing) to enhance the security of the backend. The API is only accessible from the frontend URL to prevent unauthorized access from other origins.
+
+## Deployment
+- I deployed the Trello API backend project on AWS Lightsail for reliable hosting. The project was deploy at [trelloapi.crabdance.com](trelloapi.crabdance.com).
